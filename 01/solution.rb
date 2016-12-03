@@ -1,4 +1,4 @@
-input = File.read('01/input.txt').split(', ')
+input = File.read('./input.txt').split(', ')
 
 # current_direction (n - north)
 dir = :n
