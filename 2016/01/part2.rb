@@ -1,3 +1,5 @@
+# TODO: has errors
+
 dir = :n
 dir_map = { n: %i(w e), e: %i(n s), s: %i(e w), w: %i(s n) }
 x, y = 0, 0
