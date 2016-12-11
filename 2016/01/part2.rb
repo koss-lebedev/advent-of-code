@@ -1,44 +1,69 @@
-# TODO: has errors
+class Puzzle
 
-dir = :n
-dir_map = { n: %i(w e), e: %i(n s), s: %i(e w), w: %i(s n) }
-x, y = 0, 0
-visited = Hash.new { |h, k| h[k] = [] }
-visited[x] << y
+  def initialize(input)
+    @input = input
+    @coordinates = Hash.new { |h,k| h[k] = [] }
+  end
 
-File.read('./input.txt').split(', ').each_with_index do |point, index|
-  turn = point.slice!(0)
-  delta = point.to_i
+  def solve
+    dir = :n
+    dir_map = { n: %i(w e), e: %i(n s), s: %i(e w), w: %i(s n) }
 
-  dir = dir_map[dir][turn == 'L' ? 0 : 1]
+    x, y = 0, 0
 
-  case dir
-    when :n
-      (x+1).upto(x+delta).each do |i|
-        if visited[i].include?(y)
-          puts(index) && return
+    coordinates[x] << y
+    step = 0
+
+    catch(:found) do
+      input.split(', ').each do |point|
+        turn = point.slice!(0)
+        delta = point.to_i
+
+        dir = dir_map[dir][turn == 'L' ? 0 : 1]
+
+        case dir
+          when :n
+            delta.times do |i|
+              y += 1
+              throw(:found) if point_visited?(x, y)
+            end
+          when :s
+            delta.times do |i|
+              y -= 1
+              throw(:found) if point_visited?(x, y)
+            end
+          when :e
+            delta.times do |i|
+              x += 1
+              throw(:found) if point_visited?(x, y)
+            end
+          when :w
+            delta.times do |i|
+              x -= 1
+              throw(:found) if point_visited?(x, y)
+            end
         end
-        visited[i] << y
+
+        step += 1
       end
-    when :s
-      (y-1).downto(y-delta).each do |i|
-        if visited[x].include?(i)
-          puts(index) && return
-        end
-        visited[x] << i
-      end
-    when :e
-      (y+1).upto(y+delta).each do |i|
-        puts(index) && return if visited[x].include?(i)
-        visited[x] << i
-      end
-    when :w
-      (x-1).downto(x-delta).each do |i|
-        if visited[i].include?(y)
-          puts(index) && return
-        end
-        visited[i] << y
-      end
+    end
+  end
+
+private
+
+  attr_reader :input, :coordinates
+
+  def point_visited?(x, y)
+    if coordinates[x].include?(y)
+      puts x.abs + y.abs
+      true
+    else
+      coordinates[x] << y
+      false
+    end
   end
 
 end
+
+puzzle = Puzzle.new File.read('./input.txt')
+puzzle.solve
