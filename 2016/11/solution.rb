@@ -95,11 +95,19 @@ private
 
 end
 
-state = State.new(0, [
+part1 = State.new(0, [
     [1, -1, 2, -2],
     [3, 4, -4, 5, -5],
     [-3],
     []
 ], 0)
 
-Puzzle.new(state).solve
+part2 = State.new(0, [
+    [1, -1, 2, -2, 6, -6, 7, -7],
+    [3, 4, -4, 5, -5],
+    [-3],
+    []
+], 0)
+
+Puzzle.new(part1).solve
+Puzzle.new(part2).solve
