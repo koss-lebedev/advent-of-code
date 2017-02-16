@@ -27,20 +27,19 @@ def possible_moves(point, code)
   moves
 end
 
-longest = ''
-code = 'ihgpwlah'.freeze
-queue = [Point.new(0, 0, '')]
-dest = Point.new(3,3, nil)
 
-until queue.empty?
-  current = queue.shift
-
-  if current == dest && current.path.size > longest.size
-    longest = current.path
-  else
-    possible_moves(current, code).each { |move| queue << move }
+def dfs(point, paths)
+  if point == Point.new(3,3, nil)
+    paths << point
+    puts "Found #{point.path}"
   end
-
+  possible_moves(point, 'ihgpwlah'.freeze).each do |move|
+    dfs(move, paths)
+  end
 end
 
-puts longest
+start = Point.new(0, 0, '')
+paths = []
+dfs(start, paths)
+
+puts paths.size
