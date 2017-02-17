@@ -4,9 +4,8 @@ defmodule AdventOfCode.Day1 do
     str |> String.graphemes |> Enum.map(&brace_to_int/1) |> Enum.sum
   end
 
-  defp brace_to_int(x) do
-    if (x == "("), do: 1, else: -1
-  end
+  defp brace_to_int(x) when x == "(" do 1 end
+  defp brace_to_int(_) do  -1 end
 
 end
 
