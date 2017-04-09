@@ -12,7 +12,6 @@ def look_and_say_seq(input, times)
       new_seq += "#{counter}#{input[pointer]}"
       pointer += counter
     end
-    puts times
     look_and_say_seq(new_seq, times - 1)
   end
 end
