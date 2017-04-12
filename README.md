@@ -139,7 +139,7 @@
       <th>Day 19</th>
       <td></td>
       <td></td>
-      <td></td>
+      <td><img src="docs/rb.png"/></td>
       <td></td>
     </tr>
     <tr>
