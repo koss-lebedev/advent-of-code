@@ -26,7 +26,7 @@
       <td><img src="docs/rb.png"/> <img src="docs/ex.png"/></td>
       <td><img src="docs/rb.png"/> <img src="docs/ex.png"/></td>
       <td><img src="docs/rb.png"/></td>
-      <td></td>
+      <td><img src="docs/rb.png"/></td>
       <td></td>
     </tr>
     <tr>
