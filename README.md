@@ -62,7 +62,7 @@
       <td><img src="docs/rb.png"/></td>
       <td><img src="docs/rb.png"/></td>
       <td><img src="docs/rb.png"/></td>
-      <td></td>
+      <td><img src="docs/rb.png"/></td>
       <td></td>
     </tr>
     <tr>
