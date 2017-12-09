@@ -63,7 +63,7 @@
       <td><img src="docs/rb.png"/></td>
       <td><img src="docs/rb.png"/></td>
       <td><img src="docs/rb.png"/></td>
-      <td></td>
+      <td><img src="docs/rb.png"/></td>
     </tr>
     <tr>
       <th>Day 07</th>
